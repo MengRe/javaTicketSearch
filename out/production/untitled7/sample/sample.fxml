@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.effect.ImageInput?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="802.0" prefWidth="1258.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="802.0" layoutX="-17.0" layoutY="-3.0" stroke="BLACK" strokeType="INSIDE" width="1457.0">
+            <effect>
+                <ImageInput>
+                    <source>
+                        <Image url="file:/E:/l/4.jpg" />
+                    </source>
+                </ImageInput>
+            </effect>
+        </Rectangle>
+        <MenuButton layoutX="608.0" layoutY="14.0" mnemonicParsing="false" opacity="0.66" text="更多筛选条件" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+            <items>
+                <MenuItem id="time_all" fx:id="MenuItem1" mnemonicParsing="false" onAction="#handleMenuItem1" text="具体时间限制" />
+                <MenuItem id="price" fx:id="MenuItem2" mnemonicParsing="false" onAction="#handleMenuItem2" text="总价限制" />
+                <MenuItem id="time_spend" fx:id="MenuItem3" mnemonicParsing="false" onAction="#handleMenuItem3" text="整体时间限制" />
+                <MenuItem id="other" fx:id="MenuItem4" mnemonicParsing="false" onAction="#handleMenuItem4" text="其它" />
+            </items>
+            <textFill>
+                <LinearGradient endX="0.22815533980582514" endY="0.5145631067961164" startX="0.7572815533980581" startY="0.3106796116504854">
+                    <stops>
+                        <Stop color="#05ff8d" />
+                        <Stop color="#05ff8d" offset="0.006896551724137931" />
+                        <Stop color="#fffb01" offset="0.2195043103448276" />
+                        <Stop color="#0537eb" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </textFill>
+            <effect>
+                <DropShadow color="#0e69f0" />
+            </effect>
+        </MenuButton>
+        <TextField id="start_city" fx:id="startcity" layoutX="131.0" layoutY="109.0" opacity="0.66" prefHeight="45.0" prefWidth="184.0" promptText="出发城市" AnchorPane.leftAnchor="131.0">
+            <font>
+                <Font size="19.0" />
+            </font>
+            <effect>
+                <DropShadow color="#6eff00" height="5.45" radius="0.8625" width="0.0" />
+            </effect>
+        </TextField>
+        <TextField id="end_city" fx:id="tocity" layoutX="131.0" layoutY="188.0" opacity="0.66" prefHeight="45.0" prefWidth="184.0" promptText="到达城市">
+            <font>
+                <Font size="20.0" />
+            </font>
+            <effect>
+                <DropShadow color="#06eff0" />
+            </effect>
+        </TextField>
+        <DatePicker id="datetime" fx:id="date" editable="false" layoutX="440.0" layoutY="109.0" opacity="0.66" prefHeight="45.0" prefWidth="207.0" promptText="2017-3-18" AnchorPane.leftAnchor="440.0">
+
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+            <effect>
+                <DropShadow color="#6207f0" height="36.55" radius="8.6375" width="0.0" />
+            </effect>
+        </DatePicker>
+        <Label id="city" alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="109.0" prefHeight="63.0" prefWidth="111.0" text="城市" textAlignment="CENTER" textFill="#ee0404" AnchorPane.leftAnchor="45.0">
+            <font>
+                <Font size="23.0" />
+            </font>
+            <effect>
+                <ImageInput>
+                    <source>
+                        <Image url="file:/E:/l/1.png" />
+                    </source>
+                </ImageInput>
+            </effect>
+            <cursor>
+                <Cursor fx:constant="WAIT" />
+            </cursor></Label>
+        <Label id="date_time" alignment="CENTER" contentDisplay="CENTER" layoutX="361.0" layoutY="109.0" prefHeight="45.0" prefWidth="69.0" text="日期">
+            <font>
+                <Font name="System Bold Italic" size="20.0" />
+            </font>
+            <effect>
+                <ImageInput>
+                    <source>
+                        <Image url="file:/E:/l/2.png" />
+                    </source>
+                </ImageInput>
+            </effect>
+        </Label>
+        <Button id="search" fx:id="Search" layoutX="446.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleSearch" opacity="0.66" prefHeight="48.0" prefWidth="140.0" text="搜索">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+            <textFill>
+                <LinearGradient endX="0.22815533980582514" endY="0.41747572815533973" startX="0.3398058252427184" startY="1.0">
+                    <stops>
+                        <Stop color="#05ff8d" />
+                        <Stop color="#05ff8d" offset="0.006896551724137931" />
+                        <Stop color="#fffb01" offset="0.3884698275862069" />
+                        <Stop color="#0537eb" offset="1.0" />
+                    </stops>
+                </LinearGradient>
+            </textFill>
+            <effect>
+                <DropShadow color="#13c0eb" height="1.0" radius="0.0" spread="0.32" width="0.0">
+                    <input>
+                        <Reflection />
+                    </input>
+                </DropShadow>
+            </effect>
+        </Button>
+        <Accordion fx:id="timelimit1" layoutX="775.0" layoutY="109.0" opacity="0.8" prefHeight="174.0" prefWidth="230.0">
+            <panes>
+                <TitledPane animated="false" opacity="0.66" prefHeight="107.0" prefWidth="295.0" text="出发时间段">
+                    <content>
+                        <Pane prefHeight="83.0" prefWidth="293.0">
+                            <children>
+                                <RadioButton fx:id="RadioButton1" layoutY="27.0" mnemonicParsing="false" onAction="#handleRadioButton1" prefHeight="23.0" prefWidth="82.0" selected="true" text="不限" textFill="WHITE" />
+                                <RadioButton fx:id="RadioButton2" layoutX="62.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleRadioButton2" text="早上" textFill="WHITE" />
+                                <RadioButton fx:id="RadioButton3" layoutX="119.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleRadioButton3" text="下午" textFill="WHITE" />
+                                <RadioButton fx:id="RadioButton4" layoutX="176.0" layoutY="31.0" mnemonicParsing="false" onAction="#handleRadioButton4" text="晚上" textFill="WHITE" />
+                            </children>
+                            <effect>
+                                <DropShadow color="#00aaff" height="14.78" radius="8.445" />
+                            </effect>
+                        </Pane>
+                    </content>
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                            <effect>
+                                <ImageInput>
+                                    <source>
+                                        <Image url="file:/C:/Users/zty56/Desktop/l/Train_32px_1110241_easyicon.net.png" />
+                                    </source>
+                                </ImageInput>
+                            </effect>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport></ImageView>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#4f0ec2" />
+                    </effect>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="0.6844660194174756">
+                            <stops>
+                                <Stop color="#05ff44" />
+                                <Stop color="#05ff44" offset="0.006896551724137931" />
+                                <Stop color="#eaff00" offset="0.4379310344827586" />
+                                <Stop color="WHITE" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                    <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                    </font>
+                </TitledPane>
+                <TitledPane animated="false" opacity="0.66" prefHeight="141.0" prefWidth="272.0" text="到达时间段">
+                    <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#17c267" />
+                    </effect>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.2621359223300971">
+                            <stops>
+                                <Stop color="#ff2303" />
+                                <Stop color="#ff2303" offset="0.006896551724137931" />
+                                <Stop color="WHITE" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                    <content>
+                        <Pane prefHeight="92.0" prefWidth="293.0">
+                            <children>
+                                <RadioButton fx:id="RadioButton5" layoutY="26.0" mnemonicParsing="false" onAction="#handleRadioButton5" selected="true" text="不限" textFill="#fffbfb" />
+                                <RadioButton fx:id="RadioButton6" layoutX="57.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleRadioButton6" text="早上" textFill="WHITE" />
+                                <RadioButton fx:id="RadioButton7" layoutX="114.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleRadioButton7" text="下午" textFill="WHITE" />
+                                <RadioButton fx:id="RadioButton8" layoutX="170.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleRadioButton8" text="晚上" textFill="WHITE" />
+                                <Button fx:id="make" layoutX="92.0" layoutY="52.0" mnemonicParsing="false" onAction="#handlemakechoice" prefHeight="33.0" prefWidth="55.0" text="确定" textFill="#141414" />
+                            </children>
+                            <effect>
+                                <DropShadow color="#23fa0c" height="17.89" radius="8.445" spread="0.37" width="17.89" />
+                            </effect>
+                        </Pane>
+                    </content>
+                </TitledPane>
+            </panes>
+        </Accordion>
+        <SplitPane fx:id="Pricelimit" dividerPositions="0.2525" layoutX="-7.0" layoutY="872.0" opacity="0.66" orientation="VERTICAL" prefHeight="256.0" prefWidth="276.0">
+            <items>
+                <AnchorPane fx:id="Pane1" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="91.0" layoutY="1.0" prefHeight="16.0" prefWidth="175.0" text="总价限制">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <effect>
+                                <ImageInput>
+                                    <source>
+                                        <Image url="file:/E:/l/3.png" />
+                                    </source>
+                                </ImageInput>
+                            </effect>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="Pane2" minHeight="0.0" minWidth="0.0" prefHeight="169.0" prefWidth="228.0">
+                    <children>
+                        <CheckBox fx:id="checkbox1" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onAction="#handlecheckbox1" selected="true" text="不限" />
+                        <CheckBox fx:id="checkbox2" layoutX="137.0" layoutY="25.0" mnemonicParsing="false" onAction="#handlecheckbox2" text="0~1000" />
+                        <CheckBox fx:id="checkbox3" layoutX="14.0" layoutY="65.0" mnemonicParsing="false" onAction="#handlecheckbox3" text="1000~2000" />
+                        <CheckBox fx:id="checkbox4" layoutX="137.0" layoutY="65.0" mnemonicParsing="false" onAction="#handlecheckbox4" text="2000~4000" />
+                        <CheckBox fx:id="checkbox5" layoutX="14.0" layoutY="105.0" mnemonicParsing="false" onAction="#handlecheckbox5" text="4000以上" />
+                        <Button fx:id="Return1" alignment="CENTER" layoutX="96.0" layoutY="142.0" mnemonicParsing="false" onAction="#handleReturn1" text="返回" />
+                    </children>
+                    <effect>
+                        <SepiaTone />
+                    </effect>
+                </AnchorPane>
+            </items>
+            <effect>
+                <DropShadow color="#0676cf" />
+            </effect>
+        </SplitPane>
+        <SplitPane fx:id="timelimit2" layoutX="-7.0" layoutY="1143.0" opacity="0.72" orientation="VERTICAL" prefHeight="256.0" prefWidth="270.0">
+            <items>
+                <AnchorPane fx:id="Pane5" minHeight="0.0" minWidth="0.0" prefHeight="249.0" prefWidth="268.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="79.0" layoutY="6.0" prefHeight="55.0" prefWidth="175.0" text="整体时间限制">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                            <effect>
+                                <ImageInput>
+                                    <source>
+                                        <Image url="file:/E:/l/0.png" />
+                                    </source>
+                                </ImageInput>
+                            </effect>
+                        </Label>
+                        <AnchorPane fx:id="Pane6" layoutX="17.0" layoutY="62.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="312.0">
+                            <children>
+                                <CheckBox fx:id="checkbox6" layoutY="14.0" mnemonicParsing="false" onAction="#handlecheckbox6" selected="true" text="不限" />
+                                <CheckBox fx:id="checkbox7" layoutX="116.0" layoutY="14.0" mnemonicParsing="false" onAction="#handlecheckbox7" text="0~4小时" />
+                                <CheckBox fx:id="checkbox8" layoutY="60.0" mnemonicParsing="false" onAction="#handlecheckbox8" text="5~8小时" />
+                                <CheckBox fx:id="checkbox9" layoutX="118.0" layoutY="60.0" mnemonicParsing="false" onAction="#handlecheckbox9" text="9~12小时" />
+                                <CheckBox fx:id="checkbox10" layoutX="-1.0" layoutY="102.0" mnemonicParsing="false" onAction="#handlecheckbox10" text="12小时以上" />
+                                <Button fx:id="Return3" layoutX="91.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleReturn3" text="返回" />
+                            </children>
+                        </AnchorPane>
+                        <Line endX="100.0" layoutX="91.0" layoutY="61.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="244.0" layoutY="61.0" startX="-100.0" />
+                    </children>
+                    <effect>
+                        <SepiaTone />
+                    </effect>
+                </AnchorPane>
+            </items>
+        </SplitPane>
+        <SplitPane fx:id="otherlimit" dividerPositions="0.23282442748091603" layoutX="1057.0" layoutY="911.0" opacity="0.63" orientation="VERTICAL" prefHeight="256.0" prefWidth="276.0">
+            <items>
+                <AnchorPane fx:id="Pane3" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <children>
+                        <Label alignment="CENTER" layoutX="99.0" layoutY="1.0" prefHeight="44.0" prefWidth="175.0" text="其它" textFill="#2b9790">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                            <effect>
+                                <ImageInput>
+                                    <source>
+                                        <Image url="file:/E:/l/4.png" />
+                                    </source>
+                                </ImageInput>
+                            </effect>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="Pane4" minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="158.0">
+                    <children>
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="104.0" text="是否中转：" />
+                        <ToggleButton fx:id="ToggleButton1" layoutX="118.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleToggleButton1" prefHeight="23.0" prefWidth="84.0" text="是" />
+                        <Label layoutX="13.0" layoutY="63.0" prefHeight="23.0" prefWidth="88.0" text="方案选择：" />
+                        <CheckBox fx:id="choice1" layoutX="116.0" layoutY="64.0" mnemonicParsing="false" onAction="#handlechoice1" text="价钱最省" />
+                        <CheckBox fx:id="choice2" layoutX="13.0" layoutY="96.0" mnemonicParsing="false" onAction="#handlechoice2" text="时间最短" />
+                        <CheckBox fx:id="choice3" layoutX="116.0" layoutY="96.0" mnemonicParsing="false" onAction="#handlechoice3" selected="true" text="推荐方案" />
+                        <Button fx:id="Return2" layoutX="112.0" layoutY="136.0" mnemonicParsing="false" onAction="#handleReturn2" text="返回" />
+                    </children>
+                    <effect>
+                        <SepiaTone />
+                    </effect>
+                </AnchorPane>
+            </items>
+            <effect>
+                <DropShadow />
+            </effect>
+        </SplitPane>
+        <MenuBar layoutX="9.0" layoutY="8.0" opacity="0.53">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+      <Rectangle fx:id="Rectangle1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="730.0" layoutX="-2.0" layoutY="808.0" stroke="BLACK" strokeType="INSIDE" width="1318.0">
+         <effect>
+            <ImageInput>
+               <source>
+                  <Image url="file:/E:/l/61782be166c826c8-653ea5468e5789eb-bbf9b29a34e44b9be63e5d926c79ad87_好图看看.jpg" />
+               </source>
+            </ImageInput>
+         </effect>
+      </Rectangle>
+        <SplitPane fx:id="LastFrame" dividerPositions="0.07958921694480103" layoutX="361.0" layoutY="813.0" opacity="0.74" orientation="VERTICAL" prefHeight="762.0" prefWidth="703.0">
+            <items>
+                <AnchorPane fx:id="Paneout1" minHeight="0.0" minWidth="0.0" prefHeight="137.0" prefWidth="769.0">
+                    <children>
+                        <Label layoutX="14.0" layoutY="6.0" prefHeight="46.0" prefWidth="69.0" text="出行方式" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="6.0">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="93.0" layoutY="6.0" prefHeight="44.0" prefWidth="104.0" text="车次/航班号" AnchorPane.topAnchor="6.0">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="197.0" layoutY="6.0" prefHeight="44.0" prefWidth="104.0" text="发时↑/到时↑" AnchorPane.topAnchor="6.0">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="308.0" layoutY="17.0" text="发站/到站" AnchorPane.topAnchor="17.0">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="409.0" layoutY="18.0" text="运行时间↑" AnchorPane.topAnchor="18.0">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="514.0" layoutY="17.0" text="参考票价↑" AnchorPane.topAnchor="17.0">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="612.0" layoutY="17.0" text="剩余票数" AnchorPane.topAnchor="17.0">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <effect>
+                        <DropShadow color="#575757" />
+                    </effect>
+                </AnchorPane>
+                <AnchorPane fx:id="Paneout2" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="683.0" prefWidth="769.0">
+                    <children>
+                        <ScrollBar fx:id="close_but" layoutX="747.0" layoutY="-1.0" opacity="0.68" orientation="VERTICAL" prefHeight="664.0" prefWidth="18.0">
+                            <effect>
+                                <ColorAdjust brightness="-0.43" contrast="0.78" hue="0.73" saturation="0.51" />
+                            </effect>
+                        </ScrollBar>
+                        <Label fx:id="la00" layoutX="14.0" layoutY="14.0" prefHeight="45.0" prefWidth="84.0">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="66.0" layoutY="69.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="258.0" layoutY="69.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="460.0" layoutY="69.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="98.0" layoutY="137.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="299.0" layoutY="137.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="492.0" layoutY="137.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="649.0" layoutY="137.0" startX="-100.0" />
+                        <Label fx:id="la01" layoutX="104.0" layoutY="25.0" text="                ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la02" layoutX="196.0" layoutY="25.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la03" layoutX="305.0" layoutY="26.0" text="                ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la04" layoutX="405.0" layoutY="25.0" text="                  ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la05" layoutX="513.0" layoutY="25.0" text="               ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la06" layoutX="630.0" layoutY="26.0" text="                ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la20" layoutX="14.0" layoutY="147.0" prefHeight="45.0" prefWidth="84.0" text=" ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la21" layoutX="109.0" layoutY="158.0" text="                 ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la22" layoutX="196.0" layoutY="160.0" text="                ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la23" layoutX="305.0" layoutY="160.0" text="                  ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la24" layoutX="405.0" layoutY="160.0" text="                ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la25" layoutX="513.0" layoutY="159.0" text="                  ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la26" layoutX="630.0" layoutY="160.0" text="                 ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="76.0" layoutY="200.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="268.0" layoutY="200.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="470.0" layoutY="200.0" startX="-100.0" />
+                        <Label fx:id="la10" layoutX="14.0" layoutY="86.0" prefHeight="45.0" prefWidth="84.0" text="                ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la11" layoutX="109.0" layoutY="97.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la12" layoutX="196.0" layoutY="97.0" text="            ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la13" layoutX="305.0" layoutY="98.0" text="               ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la14" layoutX="405.0" layoutY="98.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la15" layoutX="513.0" layoutY="97.0" text="               ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la16" layoutX="630.0" layoutY="98.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="649.0" layoutY="69.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="649.0" layoutY="200.0" startX="-100.0" />
+                        <Label fx:id="la30" layoutX="14.0" layoutY="209.0" prefHeight="45.0" prefWidth="84.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="67.0" layoutY="263.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="259.0" layoutY="263.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="461.0" layoutY="263.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="99.0" layoutY="331.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="300.0" layoutY="331.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="493.0" layoutY="331.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="650.0" layoutY="331.0" startX="-100.0" />
+                        <Label fx:id="la31" layoutX="109.0" layoutY="219.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la32" layoutX="196.0" layoutY="219.0" text="               ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la33" layoutX="305.0" layoutY="220.0" text="                ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la34" layoutX="405.0" layoutY="220.0" text="            ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la35" layoutX="513.0" layoutY="219.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la36" layoutX="630.0" layoutY="220.0" text="            ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la50" layoutX="14.0" layoutY="341.0" prefHeight="45.0" prefWidth="84.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la51" layoutX="109.0" layoutY="352.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la52" layoutX="196.0" layoutY="352.0" text="           ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la53" layoutX="305.0" layoutY="354.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la54" layoutX="405.0" layoutY="354.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la55" layoutX="513.0" layoutY="353.0" text="            ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la56" layoutX="630.0" layoutY="354.0" text="                ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="77.0" layoutY="394.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="269.0" layoutY="394.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="471.0" layoutY="394.0" startX="-100.0" />
+                        <Label fx:id="la40" layoutX="14.0" layoutY="280.0" prefHeight="45.0" prefWidth="84.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la41" layoutX="109.0" layoutY="292.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la42" layoutX="196.0" layoutY="291.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la43" layoutX="305.0" layoutY="292.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la44" layoutX="405.0" layoutY="292.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la45" layoutX="513.0" layoutY="291.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la46" layoutX="630.0" layoutY="292.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="650.0" layoutY="263.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="650.0" layoutY="394.0" startX="-100.0" />
+                        <Label fx:id="la94" layoutX="405.0" layoutY="616.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="465.0" layoutY="465.0" startX="-100.0" />
+                        <Label fx:id="la82" layoutX="196.0" layoutY="556.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="654.0" layoutY="596.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="497.0" layoutY="533.0" startX="-100.0" />
+                        <Label fx:id="la65" layoutX="513.0" layoutY="421.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="466.0" layoutY="659.0" startX="-100.0" />
+                        <Label fx:id="la85" layoutX="513.0" layoutY="555.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="273.0" layoutY="596.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="263.0" layoutY="465.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="264.0" layoutY="659.0" startX="-100.0" />
+                        <Label fx:id="la73" layoutX="305.0" layoutY="494.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la66" layoutX="630.0" layoutY="422.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la92" layoutX="196.0" layoutY="615.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="72.0" layoutY="659.0" startX="-100.0" />
+                        <Label fx:id="la91" layoutX="109.0" layoutY="616.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la76" layoutX="630.0" layoutY="494.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="71.0" layoutY="465.0" startX="-100.0" />
+                        <Label fx:id="la84" layoutX="405.0" layoutY="556.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la96" layoutX="630.0" layoutY="616.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="654.0" layoutY="465.0" startX="-100.0" />
+                        <Label fx:id="la81" layoutX="109.0" layoutY="554.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la70" layoutX="14.0" layoutY="482.0" prefHeight="45.0" prefWidth="84.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la62" layoutX="196.0" layoutY="421.0" text="               ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la60" layoutX="14.0" layoutY="411.0" prefHeight="45.0" prefWidth="84.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la95" layoutX="513.0" layoutY="615.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la90" layoutX="14.0" layoutY="605.0" prefHeight="45.0" prefWidth="84.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la80" layoutX="14.0" layoutY="543.0" prefHeight="45.0" prefWidth="84.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="81.0" layoutY="596.0" startX="-100.0" />
+                        <Label fx:id="la61" layoutX="109.0" layoutY="421.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la63" layoutX="305.0" layoutY="422.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="655.0" layoutY="659.0" startX="-100.0" />
+                        <Label fx:id="la72" layoutX="196.0" layoutY="493.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la75" layoutX="513.0" layoutY="493.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la64" layoutX="405.0" layoutY="422.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Line endX="100.0" layoutX="304.0" layoutY="533.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="475.0" layoutY="596.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="103.0" layoutY="533.0" startX="-100.0" />
+                        <Line endX="100.0" layoutX="654.0" layoutY="533.0" startX="-100.0" />
+                        <Label fx:id="la74" layoutX="405.0" layoutY="494.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la71" layoutX="109.0" layoutY="493.0" text="             ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la83" layoutX="305.0" layoutY="556.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la86" layoutX="630.0" layoutY="556.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="la93" layoutX="305.0" layoutY="616.0" text="              ">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </Label>
+                  <Button fx:id="lastButton" layoutX="321.0" layoutY="660.0" mnemonicParsing="false" onAction="#handleclose" text="关闭" />
+                    </children>
+                </AnchorPane>
+            </items>
+         <effect>
+            <SepiaTone />
+         </effect>
+        </SplitPane>
+    </children>
+</AnchorPane>
